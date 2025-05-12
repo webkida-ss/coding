@@ -1,4 +1,4 @@
-https://leetcode.com/problems/two-sum/
+https://leetcode.com/problems/palindrome-number/
 問題:
 回分
 
