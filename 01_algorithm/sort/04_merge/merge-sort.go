@@ -50,8 +50,13 @@ func merge(arr, left, right []int) {
 }
 
 func main() {
-	arr := []int{12, 11, 13, 5, 6, 7}
-	fmt.Println("元の配列:", arr)
-	mergeSort(arr)
-	fmt.Println("ソートされた配列:", arr)
+	arr1 := []int{5, 4, 1, 8}
+	mergeSort(arr1)
+	fmt.Println(arr1)
+	arr2 := []int{5, 4, 3}
+	mergeSort(arr2)
+	fmt.Println(arr2)
+	arr3 := []int{5, 4, 1, 8, 7, 3, 2, 9}
+	mergeSort(arr3)
+	fmt.Println(arr3)
 }
