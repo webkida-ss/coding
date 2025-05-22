@@ -7,9 +7,9 @@ import (
 )
 
 func bubbleSort(arr []int) {
-	arrLength := len(arr)
-	for i := 0; i < arrLength; i++ {
-		for j := 0; j < arrLength-1-i; j++ {
+	l := len(arr)
+	for i := 0; i < l; i++ {
+		for j := 0; j < l-1-i; j++ {
 			if arr[j] > arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]
 			}
