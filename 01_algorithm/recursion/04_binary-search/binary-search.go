@@ -45,44 +45,42 @@ func binarySearchRecursion(list []int, target int) int {
 }
 
 func main() {
-	//type test struct {
-	//	input  []int
-	//	target int
-	//	expect int
-	//}
-	//tests := []test{
-	//	{
-	//		input:  []int{1},
-	//		target: 1,
-	//		expect: 0,
-	//	},
-	//	{
-	//		input:  []int{1},
-	//		target: 1,
-	//		expect: 0
-	//	},
-	//}
-	fmt.Println(binarySearch([]int{1}, 1))                             // 0
-	fmt.Println(binarySearch([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3)) // 2
-	fmt.Println(binarySearch([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 9)) // 8
-	// テストケース
-	fmt.Println(binarySearch([]int{1, 3, 5, 7, 9}, 5))       // 2
-	fmt.Println(binarySearch([]int{2, 4, 6, 8, 10}, 2))      // 0
-	fmt.Println(binarySearch([]int{1, 2, 3, 4, 5}, 5))       // 4
-	fmt.Println(binarySearch([]int{10, 20, 30, 40, 50}, 25)) // -1
-	fmt.Println(binarySearch([]int{}, 1))                    // -1
-	fmt.Println(binarySearch([]int{4}, 4))                   // 0
-	fmt.Println(binarySearch([]int{4}, 3))                   // -1
+	type test struct {
+		input  []int
+		target int
+		expect int
+	}
+	tests := []test{
+		{input: []int{1}, target: 1, expect: 0},
+		{input: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, target: 3, expect: 2},
+		{input: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, target: 9, expect: 8},
+		{input: []int{1, 3, 5, 7, 9}, target: 5, expect: 2},
+		{input: []int{2, 4, 6, 8, 10}, target: 2, expect: 0},
+		{input: []int{1, 2, 3, 4, 5}, target: 5, expect: 4},
+		{input: []int{10, 20, 30, 40, 50}, target: 25, expect: -1},
+		{input: []int{}, target: 1, expect: -1},
+		{input: []int{4}, target: 4, expect: 0},
+		{input: []int{4}, target: 3, expect: -1},
+	}
+
+	fmt.Println("binarySearch results:")
+	for i, tc := range tests {
+		result := binarySearch(tc.input, tc.target)
+		if result == tc.expect {
+			fmt.Printf("[OK]   #%d input=%v, target=%d, got=%d\n", i+1, tc.input, tc.target, result)
+		} else {
+			fmt.Printf("[FAIL] #%d input=%v, target=%d, got=%d, expect=%d\n", i+1, tc.input, tc.target, result, tc.expect)
+		}
+	}
+
 	fmt.Println("---------------------------------------------------")
-	fmt.Println(binarySearchRecursion([]int{1}, 1))                             // 0
-	fmt.Println(binarySearchRecursion([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3)) // 2
-	fmt.Println(binarySearchRecursion([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 9)) // 8
-	// テストケース
-	fmt.Println(binarySearchRecursion([]int{1, 3, 5, 7, 9}, 5))       // 2
-	fmt.Println(binarySearchRecursion([]int{2, 4, 6, 8, 10}, 2))      // 0
-	fmt.Println(binarySearchRecursion([]int{1, 2, 3, 4, 5}, 5))       // 4
-	fmt.Println(binarySearchRecursion([]int{10, 20, 30, 40, 50}, 25)) // -1
-	fmt.Println(binarySearchRecursion([]int{}, 1))                    // -1
-	fmt.Println(binarySearchRecursion([]int{4}, 4))                   // 0
-	fmt.Println(binarySearchRecursion([]int{4}, 3))                   // -1
+	fmt.Println("binarySearchRecursion results:")
+	for i, tc := range tests {
+		result := binarySearchRecursion(tc.input, tc.target)
+		if result == tc.expect {
+			fmt.Printf("[OK]   #%d input=%v, target=%d, got=%d\n", i+1, tc.input, tc.target, result)
+		} else {
+			fmt.Printf("[FAIL] #%d input=%v, target=%d, got=%d, expect=%d\n", i+1, tc.input, tc.target, result, tc.expect)
+		}
+	}
 }
