@@ -34,17 +34,12 @@ func heapSort(arr []int) {
 	}
 }
 func main() {
-
-	fmt.Println("----------------------------------------")
-	arr0 := []int{1}
-	fmt.Println("Original array:", arr0)
-	heapSort(arr0)
-	fmt.Println("Sorted array:", arr0)
-	fmt.Println()
-
-	fmt.Println("----------------------------------------")
-	arr1 := []int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5}
-	fmt.Println("Original array:", arr1)
-	heapSort(arr1)
-	fmt.Println("Sorted array:", arr1)
+	tests := [][]int{
+		[]int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5},
+		[]int{1},
+	}
+	for _, t := range tests {
+		heapSort(t)
+		fmt.Println(t)
+	}
 }
