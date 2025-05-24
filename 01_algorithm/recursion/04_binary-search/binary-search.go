@@ -7,7 +7,8 @@ func binarySearch(list []int, target int) int {
 
 	for left <= right {
 		// 中間点
-		mid := left + (right-left)/2
+		//mid := left + (right-left)/2
+		mid := (left + right) / 2
 		midVal := list[mid]
 
 		if midVal == target {
