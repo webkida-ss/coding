@@ -1,7 +1,7 @@
 package main
 
 import (
-	util "coding/00_util/dart"
+	util "coding/00_util/golang"
 	"fmt"
 )
 
