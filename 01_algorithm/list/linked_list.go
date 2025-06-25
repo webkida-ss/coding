@@ -28,6 +28,12 @@ func (l *LinkedList[V]) Append(val V) {
 	current.Next = newNode
 }
 
+func (l *LinkedList[V]) Insert(val V) {
+	newNode := &Node[V]{Val: val}
+	newNode.Next = l.Head
+	l.Head = newNode
+}
+
 func (l *LinkedList[V]) Print() {
 	current := l.Head
 	for current != nil {
@@ -41,6 +47,7 @@ func main() {
 	list.Append(1)
 	list.Append(2)
 	list.Append(3)
+	list.Insert(0)
 	list.Print()
 
 }
