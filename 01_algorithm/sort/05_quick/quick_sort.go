@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	util "coding/00_util/golang"
+	"fmt"
+)
 
 func quickSort(arr []int) []int {
 
@@ -45,6 +48,7 @@ func main() {
 	fmt.Println(quickSort([]int{4, 3, 2, 1}))
 	fmt.Println(quickSort([]int{1}))
 	fmt.Println(quickSort([]int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5}))
+	fmt.Println(quickSort(util.GenerateRandomArray(10)))
 }
 
 // [5, 4, 3, 1, 2]

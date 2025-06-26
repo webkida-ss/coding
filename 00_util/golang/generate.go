@@ -1,4 +1,4 @@
-package golang
+package util
 
 import (
 	"math/rand"
