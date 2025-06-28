@@ -59,4 +59,10 @@ func main() {
 	if value, ok := ht.Get(123); ok {
 		fmt.Println("Found:", value)
 	}
+	if value, ok := ht.Get(456); ok {
+		fmt.Println("Found:", value)
+	}
+	if value, ok := ht.Get(457); ok {
+		fmt.Println("Found:", value)
+	}
 }
