@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	util "coding/00_util/golang"
+	"fmt"
+)
 
 func mergeSort(arr []int) {
 	if len(arr) <= 1 {
@@ -59,4 +62,8 @@ func main() {
 	arr3 := []int{5, 4, 1, 8, 7, 3, 2, 9}
 	mergeSort(arr3)
 	fmt.Println(arr3)
+	arr4 := util.GenerateRandomArray(10)
+	mergeSort(arr4)
+	fmt.Println(arr4)
+
 }
