@@ -56,6 +56,24 @@ func (l *LinkedList[V]) Remove(val V) {
 	}
 }
 
+func (l *LinkedList[V]) Reverse() {
+	var prev *Node[V]
+	current := l.Head
+
+	for current != nil {
+		// Store next node
+		nextTemp := current.Next
+		// Reverse the link
+		current.Next = prev
+		// Move prev and current one step forward
+		prev = current
+		current = nextTemp
+	}
+
+	// Update head to point to the last node (which is now first)
+	l.Head = prev
+}
+
 func (l *LinkedList[V]) Print() {
 	current := l.Head
 	for current != nil {
@@ -72,5 +90,7 @@ func main() {
 	list.Insert(0)
 	list.Print()
 	list.Remove(2)
+	list.Print()
+	list.Reverse()
 	list.Print()
 }
