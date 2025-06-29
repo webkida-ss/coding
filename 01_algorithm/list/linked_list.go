@@ -74,6 +74,27 @@ func (l *LinkedList[V]) Reverse() {
 	l.Head = prev
 }
 
+func (l *LinkedList[V]) ReverseRecursive() {
+	l.Head = l.reverseRecursiveHelper(l.Head)
+}
+
+func (l *LinkedList[V]) reverseRecursiveHelper(node *Node[V]) *Node[V] {
+	// Base case: if node is nil or we've reached the last node
+	if node == nil || node.Next == nil {
+		return node
+	}
+
+	// Recursively reverse the rest of the list
+	rest := l.reverseRecursiveHelper(node.Next)
+
+	// Reverse the link
+	node.Next.Next = node
+	node.Next = nil
+
+	// Return the new head (which was the last node)
+	return rest
+}
+
 func (l *LinkedList[V]) Print() {
 	current := l.Head
 	for current != nil {
@@ -82,6 +103,7 @@ func (l *LinkedList[V]) Print() {
 	}
 	fmt.Println("nil")
 }
+
 func main() {
 	list := &LinkedList[int]{}
 	list.Append(1)
@@ -92,5 +114,7 @@ func main() {
 	list.Remove(2)
 	list.Print()
 	list.Reverse()
+	list.Print()
+	list.ReverseRecursive()
 	list.Print()
 }
