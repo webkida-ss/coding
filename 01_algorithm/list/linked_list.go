@@ -76,6 +76,9 @@ func (l *LinkedList[V]) Reverse() {
 	// Update head to point to the last node (which is now first)
 	l.Head = prev
 
+	// --------------------------------------------
+	// for loop
+
 	// 元: A → B → C → D
 	//     ↑
 	//   current
@@ -83,7 +86,7 @@ func (l *LinkedList[V]) Reverse() {
 	// A.Next = nil  (Aの矢印をnilに)
 	// prev = A      (Aをprevに)
 	// current = B   (Bに移動)
-	// ------------------------------------
+	//
 	//
 	// 元: A ← B → C → D
 	// 	      ↑
@@ -92,6 +95,24 @@ func (l *LinkedList[V]) Reverse() {
 	// B.Next = A    (Bの矢印をAに)
 	// prev = B      (Bをprevに)
 	// current = C   (Cに移動)
+
+	// ------------------------
+	// at the end
+	// prev = D // 最後のノード（元のD）
+	// current = nil
+	// A ← B ← C ← D ← nil
+	//             ↑
+	//            prev
+	//
+	// Headが指しているのは古い先頭
+	// Head → A ← B ← C ← D ← nil
+	//
+	// Headを新しい先頭（D）に向ける必要
+	// Head → D → C → B → A → nil
+
+	// --------------------------------------------
+	// --------------------------------------------
+	// --------------------------------------------
 
 	//元のリスト: 1 -> 2 -> 3 -> nil
 	//
