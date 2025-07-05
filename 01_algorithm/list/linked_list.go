@@ -62,12 +62,12 @@ func (l *LinkedList[V]) Reverse() {
 
 	for current != nil {
 		// Store next node
-		next := current.Next
+		nextTemp := current.Next
 		// Reverse the link
 		current.Next = prev
 		// Move prev and current one step forward
 		prev = current
-		current = next
+		current = nextTemp
 	}
 
 	// Update head to point to the last node (which is now first)
