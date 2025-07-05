@@ -61,6 +61,8 @@ func (l *LinkedList[V]) Reverse() {
 	var prev *Node[V]
 	current := l.Head
 
+	// Change each one to point backward.
+	// In each iteration, only one element is reversed to point backward.
 	for current != nil {
 		// Store next node
 		nextTemp := current.Next
@@ -73,6 +75,23 @@ func (l *LinkedList[V]) Reverse() {
 
 	// Update head to point to the last node (which is now first)
 	l.Head = prev
+
+	// 元: A → B → C → D
+	//     ↑
+	//   current
+	// nextTemp = B  (Bを一時保存)
+	// A.Next = nil  (Aの矢印をnilに)
+	// prev = A      (Aをprevに)
+	// current = B   (Bに移動)
+	// ------------------------------------
+	//
+	// 元: A ← B → C → D
+	// 	      ↑
+	//       current
+	// nextTemp = C  (Cを一時保存)
+	// B.Next = A    (Bの矢印をAに)
+	// prev = B      (Bをprevに)
+	// current = C   (Cに移動)
 
 	//元のリスト: 1 -> 2 -> 3 -> nil
 	//
