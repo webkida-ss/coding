@@ -57,6 +57,7 @@ func (l *LinkedList[V]) Remove(val V) {
 }
 
 func (l *LinkedList[V]) Reverse() {
+	// To set nil at the end, prev needs to be initialized as nil.
 	var prev *Node[V]
 	current := l.Head
 
@@ -72,6 +73,30 @@ func (l *LinkedList[V]) Reverse() {
 
 	// Update head to point to the last node (which is now first)
 	l.Head = prev
+
+	//元のリスト: 1 -> 2 -> 3 -> nil
+	//
+	// イテレーション 1:
+	// current = 1, prev = nil
+	// nextTemp = 2
+	// 1.Next = nil (1 -> nil)
+	// prev = 1, current = 2
+	//
+	// イテレーション 2:
+	// current = 2, prev = 1
+	// nextTemp = 3
+	// 2.Next = 1 (2 -> 1 -> nil)
+	// prev = 2, current = 3
+	//
+	// イテレーション 3:
+	// current = 3, prev = 2
+	// nextTemp = nil
+	// 3.Next = 2 (3 -> 2 -> 1 -> nil)
+	// prev = 3, current = nil
+	//
+	// 最終結果:
+	// l.Head = 3
+	// リスト: 3 -> 2 -> 1 -> nil
 }
 
 func (l *LinkedList[V]) ReverseRecursive() {
